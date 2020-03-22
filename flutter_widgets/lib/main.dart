@@ -59,7 +59,8 @@ class MyApp extends StatelessWidget {
         '/AlertDialogWidget': (context) => AlertDialogWidget(),
         '/BottomSheetWidget': (context) => BottomSheetWidget(),
         '/Context': (context) => ContextTest(),
-        '/CustomAppBar': (context) => CustomAppBarWidget(),
+        // 页面会报错 
+        //'/CustomAppBar': (context) => CustomAppBarWidget(),
       },
       home: IndexPage(title: "flutter 组件详解"),
     );

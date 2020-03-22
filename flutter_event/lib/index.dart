@@ -31,7 +31,7 @@ class _IndexPageState extends State<IndexPage> {
             title: GestureDetector(
               child: Text(evenList[index]),
               onTap: (){
-                Navigator.pushNamed(context, "/$evenList[index]");
+                Navigator.pushNamed(context, "/${evenList[index]}");
               },
             ),
           );

@@ -29,14 +29,14 @@ class _GestureDetectorPageState extends State<GestureDetectorPage> {
   final int DIRECTION_CLOCKWISE = -1;
   int direction;
   Timer _timer;
-  Timer _timers;
+  // Timer _timers;
 
   @override
   void initState() {
     // TODO: implement initState
-    _timers = Timer.periodic(Duration(seconds: 1), (timer) { 
-      print("定时器");
-    });
+    // _timers = Timer.periodic(Duration(seconds: 1), (timer) { 
+    //   print("定时器");
+    // });
     super.initState();
     direction = DIRECTION_CLOCKWISE;
     _startTimer();
@@ -80,7 +80,7 @@ class _GestureDetectorPageState extends State<GestureDetectorPage> {
   dispose(){
     super.dispose();
     _cancelTimer();
-    _timers.cancel();
+    // _timers.cancel();
   }
   void _cancelTimer(){
     _timer?.cancel();

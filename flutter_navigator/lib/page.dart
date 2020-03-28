@@ -17,9 +17,9 @@ class _NextPageState extends State<NextPage> {
   Future _getData() async{
     Dio request = Dio();
     request.options.headers = {
-      "token": "pc|local|f2c70e4eeb094f6d97df"
+      "token": "xxx"
     };
-    Response response = await request.get("http://192.168.0.20/xuanfu-manage/colorLabel/select");
+    Response response = await request.get("url");
     print(response.data);
   }
 

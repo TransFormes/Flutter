@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class TestPage extends StatefulWidget {
   @override
@@ -10,9 +11,10 @@ class _TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("测试"),
-      ),
+      appBar: AppBar(title:Text("webView")),
+      body: WebView(
+        initialUrl: "http://192.168.0.250/",
+      )
     );
   }
 }

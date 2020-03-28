@@ -126,7 +126,7 @@ class _ShopPageState extends State<ShopPage> {
               heroTag: "登录",
               child: Text("登录"),
               onPressed: (){
-                Navigator.pushNamed(context, "/login");
+                Navigator.pushNamed(context, "/test");
                 // Navigator.of(context).pushNamed("/login");
                 // Navigator.push(
                 //   context, 

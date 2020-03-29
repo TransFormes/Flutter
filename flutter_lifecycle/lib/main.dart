@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lifecycle_state/flutter_lifecycle_state.dart';
 import './second.dart';
 
 void main() => runApp(MyApp());
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
       ),
       title: "我是标题",
       home: MainPage(title: "传下去的标题"),
+      navigatorObservers: [routeObserver],
     );
   }
 }
@@ -67,8 +69,8 @@ class _MainPageState extends State<MainPage> {
 
   @override
   void dispose() {
-    super.dispose();
     print("页面销毁");
+    super.dispose();
   }
   @override
   void reassemble() {
@@ -77,8 +79,8 @@ class _MainPageState extends State<MainPage> {
   }
   @override
   void didChangeDependencies() {
-    super.didChangeDependencies();
     print("更新组件");
+    super.didChangeDependencies();
   }
   @override
   void deactivate() {
@@ -87,7 +89,7 @@ class _MainPageState extends State<MainPage> {
   }
   @override
   void didUpdateWidget(MainPage oldWidget) {
-    super.didUpdateWidget(oldWidget);
     print("组件更新");
+    super.didUpdateWidget(oldWidget);
   }
 }

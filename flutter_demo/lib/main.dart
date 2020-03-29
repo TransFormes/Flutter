@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
       title: Text("衣盒")
     ),
     BottomNavigationBarItem(
-      icon: Icon(Icons.shop),
+      icon: Image.asset("images/gouwuche1.png",width: 28,height: 27,),
       title: Text("")
     ),
     BottomNavigationBarItem(
@@ -83,19 +83,19 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
   }
 
   void _changePage(int index){
+    if(index == currentPageIndex){
+      return ;
+    }
     currentPageIndex = index;
-    print(currentPageIndex);
     setState(() {
       currentPage = pageList[index];
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(200, 19, 208, 102),
       bottomNavigationBar: BottomAppBar(
-        // (currentPageIndex == 2 || currentPageIndex == 4) ? Colors.white : 
         color: Colors.black,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -103,7 +103,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
             InkWell(
               highlightColor: Colors.transparent,
               radius: 0,
-              child: Text("首页",style: TextStyle(fontSize:18,color: currentPageIndex == 0 ? Colors.blue : Colors.white)),
+              child: Text("首页",style: TextStyle(fontSize:18,color: currentPageIndex == 0 ? Color.fromARGB(255, 3, 168, 99) : Colors.white)),
               onTap: (){
                 _changePage(0);
               },
@@ -111,7 +111,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
             InkWell(
               highlightColor: Colors.transparent,
               radius: 0,
-              child:Text("衣盒",style: TextStyle(fontSize:18,color: currentPageIndex == 1 ? Colors.blue : Colors.white)),
+              child:Text("衣盒",style: TextStyle(fontSize:18,color: currentPageIndex == 1 ? Color.fromARGB(255, 3, 168, 99) : Colors.white)),
               onTap: (){
                 _changePage(1);
               }
@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
             InkWell(
               highlightColor: Colors.transparent,
               radius: 0,
-              child: Image.network("https://www.baidu.com/img/baidu_jgylogo3.gif",width: 40,),
+              child: Image.asset(currentPageIndex == 2 ? 'images/gouwuche2.png' :"images/gouwuche1.png",width: 28,height: 27,),
               onTap: (){
                 _changePage(2);
               },
@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
             InkWell(
               highlightColor: Colors.transparent,
               radius: 0,
-              child: Text("晒衣晒",style: TextStyle(fontSize:18,color: currentPageIndex == 3 ? Colors.blue : Colors.white)),
+              child: Text("晒衣晒",style: TextStyle(fontSize:18,color: currentPageIndex == 3 ? Color.fromARGB(255, 3, 168, 99) : Colors.white)),
               onTap: (){
                 _changePage(3);
               }
@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
             InkWell(
               highlightColor: Colors.transparent,
               radius: 0,
-              child: Text("我的",style: TextStyle(fontSize:18,color: currentPageIndex == 4 ? Colors.blue : Colors.white)),
+              child: Text("我的",style: TextStyle(fontSize:18,color: currentPageIndex == 4 ? Color.fromARGB(255, 3, 168, 99) : Colors.white)),
               onTap: (){
                 _changePage(4);
               }

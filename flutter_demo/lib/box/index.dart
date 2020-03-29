@@ -6,11 +6,12 @@ class BoxPage extends StatefulWidget {
   _BoxPageState createState() => _BoxPageState();
 }
 
-class _BoxPageState extends State<BoxPage> {
+class _BoxPageState extends State<BoxPage> with WidgetsBindingObserver{
   VideoPlayerController _videoPlayerController;
   bool _isPlay = false;
   @override
   void initState() {
+    WidgetsBinding.instance.addObserver(this);
     super.initState();
     _videoPlayerController = VideoPlayerController.network("https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20191230/1577699391055721.mp4");
     _videoPlayerController.addListener(() { });
@@ -21,13 +22,26 @@ class _BoxPageState extends State<BoxPage> {
     });
   }
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _videoPlayerController.play();
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    switch (state) {  
+      case AppLifecycleState.inactive: // 处于这种状态的应用程序应该假设它们可能在任何时候暂停。  
+        print('这个是状态11111111');  
+      break; case AppLifecycleState.resumed:// 应用程序可见，前台  
+        _videoPlayerController.play(); 
+      break; case AppLifecycleState.paused: // 应用程序不可见，后台  
+        _videoPlayerController.pause();
+      break; case AppLifecycleState.detached:  
+              print('这个是状态44444>>>>...好像是断网了');  
+      break;  
+    } 
   }
+
   @override
   void dispose() {
     super.dispose();
+    WidgetsBinding.instance.removeObserver(this);
+    _videoPlayerController.pause();
     _videoPlayerController.dispose();
   }
 
@@ -56,9 +70,9 @@ class _BoxPageState extends State<BoxPage> {
             )
           ),
           Positioned(
-            child: _isPlay ? null :Image.network("http://oss.xuanfuai.com/user/play.png",width: 50,height: 60,),
-            top: MediaQuery.of(context).size.width / 2,
-            left: MediaQuery.of(context).size.height / 2,
+            child: _isPlay ? Text("") :Image.network("http://oss.xuanfuai.com/user/play.png",width: 50,height: 60,),
+            top: 245,
+            left: 153,
           )
         ],
       ),

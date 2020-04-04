@@ -57,6 +57,7 @@ class AnimatedLogo extends AnimatedWidget{
           height: _sizeTween.evaluate(animation),
           width: _sizeTween.evaluate(animation),
           child: FlutterLogo(
+            size: 40,
           ),
         ),
       ),

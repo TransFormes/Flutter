@@ -14,7 +14,9 @@ class _LoginPageState extends State<LoginPage> {
       body: Form(
         child: Column(
           children: <Widget>[
-            FormField(builder: null)
+            TextFormField(
+              
+            )
           ],
         )
       )

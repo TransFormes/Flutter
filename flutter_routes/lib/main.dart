@@ -6,10 +6,13 @@ import './page3.dart';
 import './splash.dart';
 import './welcome.dart';
 import './page5.dart';
+import './navigator_with_result.dart';
+import './todo.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  // final List<String, dynamic> list = [];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,7 +35,7 @@ class MyApp extends StatelessWidget {
           return ErrorPage();
         });
       },
-      home: Splash(),
+      home: TodoScreen(),
     );
   }
 }

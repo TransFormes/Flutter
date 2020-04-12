@@ -7,6 +7,7 @@ import './shop/index.dart';
 import 'package:provide/provide.dart';
 import './provider/index.dart';
 import './config/routes.dart';
+import './welcome.dart';
 
 
 void main(){
@@ -31,7 +32,7 @@ class _MyAppState extends State<MyApp> {
       ),
       debugShowCheckedModeBanner: false,
       routes: routes,
-      home: HomePage(),
+      home: WelCome(),
     );
   }
 }

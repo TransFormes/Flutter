@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_boss/model/message.dart';
+import './../model/message.dart';
 
 class MessageItem extends StatelessWidget {
   final Message message;

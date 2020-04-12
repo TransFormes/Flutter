@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import './index.dart';
 
 class LoginPage extends StatefulWidget {
@@ -8,6 +9,21 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  @override
+  void initState() { 
+    super.initState();
+    showText();
+  }
+  void showText(){
+    Fluttertoast.showToast(
+      msg: "11111111111c",
+      toastLength: Toast.LENGTH_SHORT,
+      webBgColor: "#e74c3c",
+      timeInSecForIosWeb: 5,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     // Hero组件特点 页面A有个圆形头像，页面B也有个圆形头像，头像图片是同一个。从A跳转到B时，一般都是硬性跳转，两个头像之间没有任何关系。而Hero的作用是：在跳转过程中，实现从A的头像过渡到B的头像的效果。

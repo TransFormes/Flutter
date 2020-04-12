@@ -15,4 +15,4 @@ Map<String, dynamic> _$CompanyToJson(Company instance) => <String, dynamic>{
   'logo': instance.logo,
   'info': instance.info,
   'hot': instance.hot
-}
+};

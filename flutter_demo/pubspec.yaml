@@ -30,6 +30,9 @@ dependencies:
   video_player: ^0.10.8+1       #视频播放插件
   webview_flutter: ^0.3.19+9    #实现webview
   shared_preferences: ^0.5.6+3  #持久化
+  fluro: ^1.6.3   #路由
+  dio: ^3.0.9  #请求文件
+  fluttertoast: ^4.0.1 # 气泡提示
 
 dev_dependencies:
   flutter_test:

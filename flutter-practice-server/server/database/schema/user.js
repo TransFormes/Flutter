@@ -58,17 +58,20 @@ userSchema.pre('save', function (next) {
 
 userSchema.pre('save', function (next) {
   if (!this.isModified('password')) return next()
-
-  bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
-    if (err) return next(err)
-
-    bcrypt.hash(this.password, salt, (error, hash) => {
-      if (error) return next(error)
-
-      this.password = hash
-      next()
+  try {
+    bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
+      if (err) return next(err)
+  
+      bcrypt.hash(this.password, salt, (error, hash) => {
+        if (error) return next(error)
+  
+        this.password = hash
+        next()
+      })
     })
-  })
+  } catch(err) {
+    console.log(err);
+  }
 })
 
 userSchema.methods = {

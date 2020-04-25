@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './routes/gradient_button.dart';
 import './routes/camera.dart';
 import './routes/align.dart';
 import './routes/animated_switcher_counter.dart';
@@ -11,6 +12,7 @@ import './routes/context.dart';
 import './routes/custom_print.dart';
 import './routes/decoratedBoxPage.dart';
 import './routes/dialog.dart';
+import './routes/future_and+stream.dart';
 
 
 void main() => runApp(MyApp());
@@ -37,6 +39,8 @@ class MyApp extends StatelessWidget {
         '/customPainter': (context) => CustomPainterPage(),
         '/decoratedBox': (context) => DecoratedBxoPage(),
         '/dialog': (context) => DiaLogPage(),
+        '/futureAndStream': (context) => FutureAndStreamPage(),
+        '/gradientButton': (context) => GradientButtonPage(),
       },
       home: HomePage(),
     );
@@ -60,7 +64,9 @@ class _HomePageState extends State<HomePage> {
     'context',
     'customPainter',
     'decoratedBox',
-    'dialog'
+    'dialog',
+    'futureAndStream',
+    'gradientButton'
   ];
   @override
   Widget build(BuildContext context) {

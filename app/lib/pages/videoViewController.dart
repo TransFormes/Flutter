@@ -36,8 +36,8 @@ class _VideoViewControllerState extends State<VideoViewController> {
   Widget build(BuildContext context) {
     List<Widget> children = [];
     int index = 0;
-    for (String item in this.images) {
-      children.add(VideoController());
+    for (String item in this.videos) {
+      children.add(VideoController(video: item,));
     }
     return Scaffold(
       body: Container(

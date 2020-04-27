@@ -1,67 +1,101 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tiktok/demo/Video/video_view_controller.dart';
-import 'package:flutter_tiktok/service/navigation_service.dart';
-
-
-import 'demo/Layout/layout_view_controller.dart';
-import 'demo/like_view_controller.dart';
-
+import 'package:flutter_swiper/flutter_swiper.dart';
 
 void main() => runApp(MyApp());
 
-
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      navigatorKey: navigationService.navigatorKey,
-      title: 'Flutter Tik Tok',
+      title: 'swiper',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green
       ),
-      home: MyHomePage(title: 'Flutter Tik Tok Demo'),
+      debugShowCheckedModeBanner: false,
+      home: MainHome(),
     );
   }
 }
-
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
+class MainHome extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MainHomeState createState() => _MainHomeState();
 }
 
-
-class _MyHomePageState extends State<MyHomePage> {
+class _MainHomeState extends State<MainHome> {
+  List<String> list = [
+    'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+    'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587633411833175.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631982283967.jpg',
+    // 'https://xuanfu-files.oss-cn-hangzhou.aliyuncs.com/20200423/1587631918519673.jpg',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+      body: Swiper(
+        itemCount: list.length,
+        scrollDirection: Axis.vertical,
+        itemBuilder: (context, index){
+          // return FutureBuilder(
+          //   future: Future.delayed(Duration(seconds: 3)),
+          //   builder: (contetx, snap){
+          //     print(snap.connectionState);
+          //     if(snap.connectionState == ConnectionState.waiting){
+          //       return CircularProgressIndicator();
+          //     } else if(snap.connectionState == ConnectionState.done){
+          //       return Image.network(list[index],fit: BoxFit.cover,width: 750,height: 1330,);
+          //     }
+          //     return Text('error');
+          //   }
+          // );
+          return Image.network(list[index],fit: BoxFit.cover,width: 750,height: 1330,);
+        },
+        controller: SwiperController(),
+        onIndexChanged:(int index){
+          print(index);
+        },
+        loop: false
       ),
-      body: ListView(
-          children: ListTile.divideTiles(context: context, tiles: [
-        ListTile(
-          title: Text("like pop demo"),
-          onTap: () {
-            navigationService.cNavigateTo(new LikeViewController());
-          },
-        ),
-        ListTile(
-          title: Text("layout view demo"),
-          onTap: () {
-            navigationService.cNavigateTo(new LayoutViewController());
-          },
-        ),
-        ListTile(
-          title: Text("video view demo"),
-          onTap: () {
-            navigationService.cNavigateTo(new VideoViewController());
-          },
-        ),
-      ]).toList()),
     );
   }
 }

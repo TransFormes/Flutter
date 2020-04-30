@@ -45,7 +45,10 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
-
+class Myevent{
+  String name;
+  Myevent(this.name);
+}
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   EventBus bus = EventBus();
@@ -53,9 +56,13 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    bus.fire();
+    bus.on<Myevent>().listen((event) {
+      print(event.name);
+    });
+    // bus.fire();
   }
   void _incrementCounter() {
+    bus.fire(Myevent('da'));
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below

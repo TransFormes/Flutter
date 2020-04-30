@@ -1,4 +1,4 @@
-name: pageView
+name: video
 description: A new Flutter project.
 
 # The following defines the version and build number for your application.
@@ -25,7 +25,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
   video_player: ^0.10.9+1
-  screen: ^0.0.5
 
 dev_dependencies:
   flutter_test:
